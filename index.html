@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Vuejs SPA</title>
+    <!-- Library Utama -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>Aplikasi Artikel</h1>
+            <nav>
+                <!-- Gunakan router-link agar halaman tidak reload saat pindah menu -->
+                <router-link to="/">Home</router-link> |
+                <router-link to="/artikel">Manajemen Artikel</router-link> |
+                <router-link to="/about">About</router-link> |
+                <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
+                    <a v-else href="#" @click.prevent="logout">Logout</a>
+            </nav>
+        </header>
+        <hr>
+
+        <!-- Tempat komponen (Home/Artikel) akan ditampilkan -->
+        <main>
+            <router-view></router-view>
+        </main>
+    </div>
+
+    <!-- 1. Load Komponen Artikel -->
+    <script src="assets/js/component/artikel.js"></script>
+    <script src="assets/js/component/about.js"></script>
+    <script src="assets/js/component/login.js"></script>
+
+    <!-- 2. Definisikan Komponen Home yang diminta oleh app.js -->
+    <script>
+        const Home = {
+            template: `
+                <div>
+                    <h2>Selamat Datang</h2>
+                    <p>Ini adalah halaman beranda aplikasi artikel menggunakan Vue Router.</p>
+                </div>`
+        };
+    </script>
+
+    <!-- 3. Terakhir, load app.js -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
