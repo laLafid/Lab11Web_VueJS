@@ -62,7 +62,7 @@ Kita akan pakai framework JavaScript untuk membangun interface website yang inte
     - app.js
     ```js
     const { createApp: createApp } = Vue,
-  apiUrl = "http://localhost/project-root/public";
+    apiUrl = "http://localhost/project-root/public";
     createApp({
     data: () => ({
         artikel: "",
