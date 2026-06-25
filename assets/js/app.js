@@ -1,7 +1,7 @@
 const { createApp } = Vue;
 const { createRouter, createWebHashHistory } = VueRouter;
 // Tentukan lokasi API REST End Point sesuai konfigurasi local proyek Anda
-const apiUrl = "http://localhost/project-root/public";
+const apiUrl = "http://localhost/backend-api/public";
 
 axios.interceptors.request.use(
   (config) => {
